@@ -1,7 +1,7 @@
 def cmaps(cmap):
     from matplotlib.colors import LinearSegmentedColormap
     valid_cmaps = ['cmapkk1', 'cmapkk2', 'cmapkk3', 'cmapkk4', 
-                'cmapkk5', 'cmapkk6', 'cmapkk7', 'cmapkk8', 'cmapkk9']
+                'cmapkk5', 'cmapkk6', 'cmapkk7', 'cmapkk8', 'cmapkk9', 'cmapkk10']
     
     if cmap not in valid_cmaps:
         raise ValueError(f"Invalid colormap '{cmap}'. Valid options: {valid_cmaps}")
