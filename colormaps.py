@@ -269,5 +269,5 @@ def cmaps(cmap):
             )
         }
             
-        cmapkk10=LinearSegmentedColormap('cmapkk10',cmap10)
+        cmapkk10=LinearSegmentedColormap('cmapkk10',cmapkk10)
         return cmapkk10
