@@ -1,7 +1,11 @@
-def cmaps(cmap):
-    from matplotlib.colors import LinearSegmentedColormap
+def get_valid_cmaps():
     valid_cmaps = ['cmapkk1', 'cmapkk2', 'cmapkk3', 'cmapkk4', 
                 'cmapkk5', 'cmapkk6', 'cmapkk7', 'cmapkk8', 'cmapkk9', 'cmapkk10']
+    return valid_cmaps
+
+def cmaps(cmap):
+    from matplotlib.colors import LinearSegmentedColormap
+    valid_cmaps = get_valid_cmaps()
     
     if cmap not in valid_cmaps:
         raise ValueError(f"Invalid colormap '{cmap}'. Valid options: {valid_cmaps}")
@@ -271,3 +275,21 @@ def cmaps(cmap):
             
         cmapkk10=LinearSegmentedColormap('cmapkk10',cmapkk10)
         return cmapkk10
+
+def register(cmap='All'):
+    import matplotlib
+    valid_cmaps = get_valid_cmaps()
+    if cmap=='All':
+        for j in valid_cmaps:
+            matplotlib.colormaps.register(cmaps(j), force=True)
+    
+    elif isinstance(cmap, list):
+        for j in cmap:
+            matplotlib.colormaps.register(cmaps(j), force=True)
+    else:
+        matplotlib.colormaps.register(cmaps(cmap), force=True)
+
+
+
+
+
